@@ -1,4 +1,3 @@
-using GHelper.Mode;
 using System.Management;
 using System.Text.Json;
 
@@ -97,7 +96,7 @@ public static class AppConfig
         var backupText = File.ReadAllText(backup);
         bool isValid =
             !string.IsNullOrWhiteSpace(backupText) &&
-            backupText.IndexOf('\0') == -1 &&                     
+            backupText.IndexOf('\0') == -1 &&
             backupText.StartsWith("{") &&
             backupText.Trim().EndsWith("}") &&
             backupText.Length >= 10;
@@ -250,54 +249,6 @@ public static class AppConfig
         Write();
     }
 
-    public static void RemoveMode(string name)
-    {
-        Remove(name + "_" + Modes.GetCurrent());
-    }
-
-    public static string GgetParamName(AsusFan device, string paramName = "fan_profile")
-    {
-        int mode = Modes.GetCurrent();
-        string name;
-
-        switch (device)
-        {
-            case AsusFan.GPU:
-                name = "gpu";
-                break;
-            case AsusFan.Mid:
-                name = "mid";
-                break;
-            case AsusFan.XGM:
-                name = "xgm";
-                break;
-            default:
-                name = "cpu";
-                break;
-
-        }
-
-        return paramName + "_" + name + "_" + mode;
-    }
-
-    public static byte[] GetFanConfig(AsusFan device)
-    {
-        string curveString = GetString(GgetParamName(device));
-        byte[] curve = { };
-
-        if (curveString is not null)
-            curve = StringToBytes(curveString);
-
-        return curve;
-    }
-
-    public static void SetFanConfig(AsusFan device, byte[] curve)
-    {
-        string bitCurve = BitConverter.ToString(curve);
-        Set(GgetParamName(device), bitCurve);
-    }
-
-
     public static byte[] StringToBytes(string str)
     {
         String[] arr = str.Split('-');
@@ -306,65 +257,6 @@ public static class AppConfig
         return array;
     }
 
-    public static byte[] GetDefaultCurve(AsusFan device)
-    {
-        int mode = Modes.GetCurrentBase();
-        byte[] curve;
-
-        switch (mode)
-        {
-            case AsusACPI.PerformanceTurbo:
-                switch (device)
-                {
-                    case AsusFan.GPU:
-                        return StringToBytes("14-3F-44-48-4C-50-54-62-16-1F-26-2D-39-47-55-5F");
-                    default:
-                        return StringToBytes("14-3F-44-48-4C-50-54-62-11-1A-22-29-34-43-51-5A");
-                }
-            case AsusACPI.PerformanceSilent:
-                switch (device)
-                {
-                    case AsusFan.GPU:
-                        return StringToBytes("3C-41-42-46-47-4B-4C-62-08-11-11-1D-1D-26-26-2D");
-                    default:
-                        return StringToBytes("3C-41-42-46-47-4B-4C-62-03-0C-0C-16-16-22-22-29");
-                }
-            default:
-                switch (device)
-                {
-                    case AsusFan.GPU:
-                        return StringToBytes("3A-3D-40-44-48-4D-51-62-0C-16-1D-1F-26-2D-34-4A");
-                    default:
-                        return StringToBytes("3A-3D-40-44-48-4D-51-62-08-11-16-1A-22-29-30-45");
-                }
-        }
-
-    }
-
-    public static string GetModeString(string name)
-    {
-        return GetString(name + "_" + Modes.GetCurrent());
-    }
-
-    public static int GetMode(string name, int empty = -1)
-    {
-        return Get(name + "_" + Modes.GetCurrent(), empty);
-    }
-
-    public static bool IsMode(string name)
-    {
-        return Get(name + "_" + Modes.GetCurrent()) == 1;
-    }
-
-    public static void SetMode(string name, int value)
-    {
-        Set(name + "_" + Modes.GetCurrent(), value);
-    }
-
-    public static void SetMode(string name, string value)
-    {
-        Set(name + "_" + Modes.GetCurrent(), value);
-    }
 
     public static bool IsAlly()
     {
@@ -454,7 +346,7 @@ public static class AppConfig
     {
         return ContainsModel("GA401") || ContainsModel("GA402") || ContainsModel("GU604V") || ContainsModel("GU604V") || ContainsModel("G835") || ContainsModel("G815") || ContainsModel("G635") || ContainsModel("G615");
     }
-    
+
     public static bool IsSlash()
     {
         return ContainsModel("GA403") || ContainsModel("GU605") || ContainsModel("GA605");
@@ -590,23 +482,6 @@ public static class AppConfig
         return ContainsModel("13QY");
     }
 
-    public static bool NoAutoUltimate()
-    {
-        return ContainsModel("G614") || ContainsModel("GU604") || ContainsModel("FX507") || ContainsModel("G513") || ContainsModel("FA617") || ContainsModel("G834") || ContainsModel("GA403") || ContainsModel("GU605") || ContainsModel("GA605") || ContainsModel("GU603VV");
-    }
-
-
-    public static bool IsManualModeRequired()
-    {
-        if (!IsMode("auto_apply_power"))
-            return false;
-
-        return
-            Is("manual_mode") ||
-            ContainsModel("GU604") ||
-            ContainsModel("G733") ||
-            ContainsModel("FX507Z");
-    }
 
     public static bool IsFanScale()
     {

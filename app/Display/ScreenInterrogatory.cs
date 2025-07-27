@@ -296,7 +296,7 @@ namespace GHelper.Display
         }
 
 
-        [DllImport(nameof(User32), CharSet = CharSet.Unicode, SetLastError = true)]
+        [DllImport("user32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         public static extern bool EnumDisplayDevices(
             string? lpDevice,
             uint iDevNum,

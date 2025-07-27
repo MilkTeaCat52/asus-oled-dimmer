@@ -55,57 +55,10 @@ public class Startup
                     Logger.WriteLine($"Can't check startup task: {ex.Message}");
                 }
 
-                if (taskService.RootFolder.AllTasks.FirstOrDefault(t => t.Name == chargeTaskName) == null) ScheduleCharge();
-
             }
         }
     }
 
-    public static void UnscheduleCharge()
-    {
-        using (TaskService taskService = new TaskService())
-        {
-            try
-            {
-                taskService.RootFolder.DeleteTask(chargeTaskName);
-            }
-            catch (Exception e)
-            {
-                Logger.WriteLine("Can't remove charge limit task: " + e.Message);
-            }
-        }
-    }
-
-    public static void ScheduleCharge()
-    {
-
-        if (strExeFilePath is null) return;
-
-        using (TaskDefinition td = TaskService.Instance.NewTask())
-        {
-            td.RegistrationInfo.Description = "G-Helper Charge Limit";
-            td.Triggers.Add(new BootTrigger());
-            td.Actions.Add(strExeFilePath, "charge");
-
-            td.Principal.RunLevel = TaskRunLevel.LUA;
-            td.Principal.LogonType = TaskLogonType.S4U;
-            td.Principal.UserId = WindowsIdentity.GetCurrent().Name;
-
-            td.Settings.StopIfGoingOnBatteries = false;
-            td.Settings.DisallowStartIfOnBatteries = false;
-            td.Settings.ExecutionTimeLimit = TimeSpan.Zero;
-
-            try
-            {
-                TaskService.Instance.RootFolder.RegisterTaskDefinition(chargeTaskName, td);
-                Logger.WriteLine("Charge limit task scheduled: " + strExeFilePath);
-            }
-            catch (Exception e)
-            {
-                Logger.WriteLine("Can't create a charge limit task: " + e.Message);
-            }
-        }
-    }
 
     public static void Schedule()
     {
@@ -138,9 +91,6 @@ public class Startup
 
             Logger.WriteLine("Startup task scheduled: " + strExeFilePath);
         }
-
-        ScheduleCharge();
-
     }
 
     public static void UnSchedule()
@@ -159,7 +109,5 @@ public class Startup
                     ProcessHelper.RunAsAdmin();
             }
         }
-
-        UnscheduleCharge();
     }
 }
