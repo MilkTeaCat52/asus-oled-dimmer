@@ -1,6 +1,4 @@
-﻿using GHelper.Helpers;
-using NvAPIWrapper.Display;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.InteropServices;
 
 namespace GHelper.Display
@@ -344,15 +342,16 @@ namespace GHelper.Display
                     try
                     {
                         displayName = DeviceName(displayModes[i].adapterId, displayModes[i].id);
-                        
-                    } catch (Exception e)
+
+                    }
+                    catch (Exception e)
                     {
                         Logger.WriteLine(e.Message);
                     }
 
                     if (displayName is not null) yield return (DISPLAYCONFIG_TARGET_DEVICE_NAME)displayName;
                 }
-                    
+
         }
 
 
@@ -375,7 +374,7 @@ namespace GHelper.Display
                     var isMirroring = (displayMonitor.StateFlags & DisplayDeviceStates.MIRRORING_DRIVER) == DisplayDeviceStates.MIRRORING_DRIVER;
                     if (isAttached && !isMirroring) yield return displayMonitor;
                     displayMonitorNumber++;
-                    
+
                 }
 
                 displayAdapterNumber++;

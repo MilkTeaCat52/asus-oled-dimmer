@@ -6,7 +6,6 @@ public class Startup
 {
 
     static string taskName = "GHelper";
-    static string chargeTaskName = taskName + "Charge";
     static string strExeFilePath = Application.ExecutablePath.Trim();
 
     public static bool IsScheduled()
@@ -20,15 +19,6 @@ public class Startup
         {
             Logger.WriteLine("Can't check startup task status: " + e.Message);
             return false;
-        }
-    }
-
-    public static void ReScheduleAdmin()
-    {
-        if (ProcessHelper.IsUserAdministrator() && IsScheduled())
-        {
-            UnSchedule();
-            Schedule();
         }
     }
 
@@ -58,7 +48,6 @@ public class Startup
             }
         }
     }
-
 
     public static void Schedule()
     {

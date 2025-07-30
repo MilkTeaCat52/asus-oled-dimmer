@@ -10,6 +10,8 @@ namespace GHelper
         ToolStripMenuItem menuStartup, menuOnTop, menuFocus;
 
         static long lastLostFocus;
+        static bool trayClicked = false;
+        static public bool allowTray = true;
 
         bool sliderGammaIgnore = false;
 
@@ -24,9 +26,8 @@ namespace GHelper
             FormClosing += SettingsForm_FormClosing;
             Deactivate += SettingsForm_LostFocus;
 
-            VisibleChanged += SettingsForm_VisibleChanged;
-
             labelVersion.ForeColor = Color.FromArgb(128, Color.Gray);
+            SetVersionLabel("0.219.0");
 
 
             Text = "G-Helper " + (ProcessHelper.IsUserAdministrator() ? "—" : "-") + " " + AppConfig.GetModelShort();
@@ -36,9 +37,7 @@ namespace GHelper
             this.Resize += SettingsForm_Resize;
             SetContextMenu();
 
-
-            int click = AppConfig.Get("donate_click");
-            int startCount = AppConfig.Get("start_count");
+            Program.trayIcon.MouseDown += TrayIcon_MouseDown;
 
             InitVisual();
         }
@@ -72,32 +71,14 @@ namespace GHelper
             VisualControl.SetBrightness(sliderGamma.Value);
         }
 
-        private void SettingsForm_LostFocus(object? sender, EventArgs e)
-        {
-            lastLostFocus = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-            HideAll();
-        }
-
         private void SettingsForm_Resize(object? sender, EventArgs e)
         {
             Left = Screen.FromControl(this).WorkingArea.Width - 10 - Width;
             Top = Screen.FromControl(this).WorkingArea.Height - 105 - Height;
         }
 
-        private void SettingsForm_VisibleChanged(object? sender, EventArgs e)
-        {
-        }
-
         public void SetContextMenu()
         {
-            //Run On Startup
-
-            //Always On Top
-            //Hide When Focus Lost
-
-            //Exit
-
-
             contextMenuStrip.Items.Clear();
             Padding padding = new Padding(15, 5, 5, 5);
 
@@ -112,13 +93,13 @@ namespace GHelper
             menuOnTop = new ToolStripMenuItem("Always On Top");
             menuOnTop.Click += ButtonOnTop_Click;
             menuOnTop.Margin = padding;
-            menuOnTop.Checked = (false);//mode == AsusACPI.PerformanceBalanced);
+            menuOnTop.Checked = AppConfig.Is("topmost");
             contextMenuStrip.Items.Add(menuOnTop);
-
+                                                  
             menuFocus = new ToolStripMenuItem("Hide When Focus Lost");
             menuFocus.Click += ButtonFocus_Click;
             menuFocus.Margin = padding;
-            menuFocus.Checked = false;//(mode == AsusACPI.PerformanceTurbo);
+            menuFocus.Checked = AppConfig.Is("hide_with_focus");
             contextMenuStrip.Items.Add(menuFocus);
 
             contextMenuStrip.Items.Add("-");
@@ -170,11 +151,33 @@ namespace GHelper
         }
         private void ButtonOnTop_Click(object? sender, EventArgs e)
         {
+            if (AppConfig.Get("topmost") == 1)
+            {
+                AppConfig.Set("topmost", 0);
+                menuOnTop.Checked = false;
+                TopMost = false;
 
+            }
+            else
+            {
+                AppConfig.Set("topmost", 1);
+                menuOnTop.Checked = true;
+                TopMost = true;
+            }
         }
         private void ButtonFocus_Click(object? sender, EventArgs e)
         {
+            if (AppConfig.Get("hide_with_focus") == 1)
+            {
+                AppConfig.Set("hide_with_focus", 0);
+                menuFocus.Checked = false;
 
+            }
+            else
+            {
+                AppConfig.Set("hide_with_focus", 1);
+                menuFocus.Checked = true;
+            }     
         }
 
         private void ButtonQuit_Click(object? sender, EventArgs e)
@@ -182,6 +185,46 @@ namespace GHelper
             Close();
             Program.trayIcon.Visible = false;
             Application.Exit();
+        }
+
+        private void TrayIcon_MouseDown(object? sender, EventArgs e)
+        {
+            /*
+            if (AppConfig.Is("hide_with_focus") && this.HasAnyFocus())
+            {
+                trayClicked = true;
+            }*/
+            if (AppConfig.Is("hide_with_focus") )//this.HasAnyFocus())
+            {
+                allowTray = false;
+
+                if (!this.Visible && Math.Abs(DateTimeOffset.Now.ToUnixTimeMilliseconds() - lastLostFocus) > 300)
+                {
+                    allowTray = true;
+                }
+            }
+            else
+            {
+                allowTray = true;
+            }
+        }
+
+        private void SettingsForm_LostFocus(object? sender, EventArgs e)
+        {
+            /*
+            lastLostFocus = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+            if (AppConfig.Is("hide_with_focus") && !trayClicked)
+            {
+                HideAll();
+            }
+            trayClicked = false;*/
+            lastLostFocus = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+            if (AppConfig.Is("hide_with_focus"))
+            {
+                HideAll();
+                allowTray = false;
+            }
+            
         }
 
         /// <summary>
@@ -218,25 +261,6 @@ namespace GHelper
             {
                 e.Cancel = true;
                 HideAll();
-            }
-        }
-
-        public void VisualiseIcon()
-        {
-            int GPUMode = AppConfig.Get("gpu_mode");
-            bool isDark = CheckSystemDarkModeStatus();
-
-            switch (GPUMode)
-            {
-                case AsusACPI.GPUModeEco:
-                    Program.trayIcon.Icon = AppConfig.IsBWIcon() ? (!isDark ? Properties.Resources.dark_eco : Properties.Resources.light_eco) : Properties.Resources.eco;
-                    break;
-                case AsusACPI.GPUModeUltimate:
-                    Program.trayIcon.Icon = AppConfig.IsBWIcon() ? (!isDark ? Properties.Resources.dark_standard : Properties.Resources.light_standard) : Properties.Resources.ultimate;
-                    break;
-                default:
-                    Program.trayIcon.Icon = AppConfig.IsBWIcon() ? (!isDark ? Properties.Resources.dark_standard : Properties.Resources.light_standard) : Properties.Resources.standard;
-                    break;
             }
         }
 

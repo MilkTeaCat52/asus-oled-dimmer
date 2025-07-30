@@ -4,32 +4,6 @@ using static GHelper.Display.ScreenInterrogatory;
 
 namespace GHelper.Display
 {
-
-    class DeviceComparer : IComparer
-    {
-        public int Compare(object x, object y)
-        {
-            uint displayX = ((DISPLAYCONFIG_TARGET_DEVICE_NAME)x).connectorInstance;
-            uint displayY = ((DISPLAYCONFIG_TARGET_DEVICE_NAME)y).connectorInstance;
-
-            if (displayX > displayY)
-                return 1;
-            if (displayX < displayY)
-                return -1;
-            else
-                return 0;
-        }
-    }
-
-    class ScreenComparer : IComparer
-    {
-        public int Compare(object x, object y)
-        {
-            int displayX = Int32.Parse(((Screen)x).DeviceName.Replace(@"\\.\DISPLAY", ""));
-            int displayY = Int32.Parse(((Screen)y).DeviceName.Replace(@"\\.\DISPLAY", ""));
-            return (new CaseInsensitiveComparer()).Compare(displayX, displayY);
-        }
-    }
     internal class ScreenNative
     {
 
@@ -41,12 +15,6 @@ namespace GHelper.Display
 
         [DllImport("gdi32")]
         internal static extern bool GetDeviceGammaRamp(IntPtr dcHandle, ref GammaRamp ramp);
-
-        [DllImport("gdi32", CharSet = CharSet.Unicode)]
-        internal static extern bool SetICMProfileW(IntPtr dcHandle, string lpFileName);
-
-        [DllImport("gdi32", CharSet = CharSet.Unicode)]
-        internal static extern bool SetICMMode(IntPtr dcHandle, int mode);
 
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
         public struct DEVMODE
@@ -147,17 +115,6 @@ namespace GHelper.Display
             WCS_PROFILE_MANAGEMENT_SCOPE_CURRENT_USER
         }
 
-        [DllImport("mscms.dll", CharSet = CharSet.Unicode)]
-        public static extern bool WcsSetDefaultColorProfile(
-            WCS_PROFILE_MANAGEMENT_SCOPE scope,
-            string pDeviceName,
-            COLORPROFILETYPE cptColorProfileType,
-            COLORPROFILESUBTYPE cpstColorProfileSubType,
-            uint dwProfileID,
-            string pProfileName
-        );
-
-
         public const int ENUM_CURRENT_SETTINGS = -1;
         public const string defaultDevice = @"\\.\DISPLAY1";
 
@@ -246,58 +203,5 @@ namespace GHelper.Display
         }
 
 
-        public static int GetMaxRefreshRate(string? laptopScreen)
-        {
-
-            if (laptopScreen is null) return -1;
-
-            DEVMODE dm = CreateDevmode();
-            int frequency = -1;
-
-            int i = 0;
-            while (0 != EnumDisplaySettingsEx(laptopScreen, i, ref dm))
-            {
-                if (dm.dmDisplayFrequency > frequency) frequency = dm.dmDisplayFrequency;
-                i++;
-            }
-
-            if (frequency > 0) AppConfig.Set("screen_max", frequency);
-            else frequency = AppConfig.Get("screen_max");
-
-            return frequency;
-
-        }
-
-        public static int GetRefreshRate(string? laptopScreen)
-        {
-
-            if (laptopScreen is null) return -1;
-
-            DEVMODE dm = CreateDevmode();
-            int frequency = -1;
-
-            if (0 != EnumDisplaySettingsEx(laptopScreen, ENUM_CURRENT_SETTINGS, ref dm))
-            {
-                frequency = dm.dmDisplayFrequency;
-            }
-
-            return frequency;
-        }
-
-        public static int SetRefreshRate(string laptopScreen, int frequency = 120)
-        {
-            DEVMODE dm = CreateDevmode();
-
-            if (0 != EnumDisplaySettingsEx(laptopScreen, ENUM_CURRENT_SETTINGS, ref dm))
-            {
-                dm.dmDisplayFrequency = frequency;
-                int iRet = ChangeDisplaySettingsEx(laptopScreen, ref dm, IntPtr.Zero, DisplaySettingsFlags.CDS_UPDATEREGISTRY, IntPtr.Zero);
-                Logger.WriteLine("Screen = " + frequency.ToString() + "Hz : " + (iRet == 0 ? "OK" : iRet));
-                return iRet;
-            }
-
-            return 0;
-
-        }
     }
 }

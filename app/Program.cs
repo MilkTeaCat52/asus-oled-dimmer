@@ -5,7 +5,6 @@ using System.Reflection;
 
 namespace GHelper
 {
-
     static class Program
     {
         public static NotifyIcon trayIcon = new NotifyIcon
@@ -15,13 +14,16 @@ namespace GHelper
             Visible = true
         };
 
-        public static AsusACPI acpi;
 
         public static SettingsForm settingsForm = new SettingsForm();
 
         // The main entry point for the application
         public static void Main(string[] args)
         {
+            //set default config values if they don't exist
+            if (AppConfig.GetString("topmost")==null) AppConfig.Set("topmost",0);
+            if (AppConfig.GetString("hide_with_focus")==null) AppConfig.Set("hide_with_focus",1);
+
             string language = AppConfig.GetString("language");
 
             if (language != null && language.Length > 0)
@@ -38,35 +40,9 @@ namespace GHelper
             Logger.WriteLine("------------");
             Logger.WriteLine("App launched: " + AppConfig.GetModel() + " :" + Assembly.GetExecutingAssembly().GetName().Version.ToString() + CultureInfo.CurrentUICulture + (ProcessHelper.IsUserAdministrator() ? "." : ""));
 
-            var startCount = AppConfig.Get("start_count") + 1;
-            AppConfig.Set("start_count", startCount);
-            Logger.WriteLine("Start Count: " + startCount);
-
-            acpi = new AsusACPI();
-
-            if (!acpi.IsConnected() && AppConfig.IsASUS())
-            {
-                DialogResult dialogResult = MessageBox.Show(Properties.Strings.ACPIError, Properties.Strings.StartupError, MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    Process.Start(new ProcessStartInfo("https://www.asus.com/support/FAQ/1047338/") { UseShellExecute = true });
-                }
-
-                Application.Exit();
-                return;
-            }
-
-            //ProcessHelper.KillByName("ASUSSmartDisplayControl");
-
             Application.EnableVisualStyles();
 
             trayIcon.MouseClick += TrayIcon_MouseClick;
-
-
-            if (Environment.CurrentDirectory.Trim('\\') == Application.StartupPath.Trim('\\'))
-            {
-                SettingsToggle(false);
-            }
 
             Startup.StartupCheck();
 
@@ -81,7 +57,7 @@ namespace GHelper
             {
                 // If helper window is not on top, this just focuses on the app again
                 // Pressing the ghelper button again will hide the app
-                if (checkForFocus && !settingsForm.HasAnyFocus(trayClick) && !AppConfig.Is("topmost"))
+                if (!settingsForm.HasAnyFocus(trayClick) && !AppConfig.Is("topmost"))
                 {
                     settingsForm.ShowAll();
                 }
@@ -101,17 +77,13 @@ namespace GHelper
 
                 settingsForm.Show();
                 settingsForm.ShowAll();
-
-                //settingsForm.Left = screen.WorkingArea.Width - 10 - settingsForm.Width;
-                //settingsForm.Top = screen.WorkingArea.Height - 40 - settingsForm.Height;
             }
         }
 
         static void TrayIcon_MouseClick(object? sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left && SettingsForm.allowTray)
                 SettingsToggle(trayClick: true);
-
         }
 
         static void OnExit(object sender, EventArgs e)

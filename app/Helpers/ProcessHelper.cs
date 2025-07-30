@@ -64,64 +64,6 @@ namespace GHelper.Helpers
             }
         }
 
-
-        public static void KillByName(string name)
-        {
-            foreach (var process in Process.GetProcessesByName(name))
-            {
-                try
-                {
-                    process.Kill();
-                    Logger.WriteLine($"Stopped: {process.ProcessName}");
-                }
-                catch (Exception ex)
-                {
-                    Logger.WriteLine($"Failed to stop: {process.ProcessName} {ex.Message}");
-                }
-            }
-        }
-
-        public static void KillByProcess(Process process)
-        {
-            try
-            {
-                process.Kill();
-                Logger.WriteLine($"Stopped: {process.ProcessName}");
-            }
-            catch (Exception ex)
-            {
-                Logger.WriteLine($"Failed to stop: {process.ProcessName} {ex.Message}");
-            }
-        }
-
-        public static void StopDisableService(string serviceName, string disable = "Disabled")
-        {
-            try
-            {
-                string script = $"Get-Service -Name \"{serviceName}\" | Stop-Service -Force -PassThru | Set-Service -StartupType {disable}";
-                Logger.WriteLine(script);
-                RunCMD("powershell", script);
-            }
-            catch (Exception ex)
-            {
-                Logger.WriteLine(ex.ToString());
-            }
-        }
-
-        public static void StartEnableService(string serviceName, bool automatic = true)
-        {
-            try
-            {
-                string script = $"Set-Service -Name \"{serviceName}\" -Status running" + (automatic? " -StartupType Automatic":"");
-                Logger.WriteLine(script);
-                RunCMD("powershell", script);
-            }
-            catch (Exception ex)
-            {
-                Logger.WriteLine(ex.ToString());
-            }
-        }
-
         public static string RunCMD(string name, string args, string? directory = null)
         {
             var cmd = new Process();

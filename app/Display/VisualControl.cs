@@ -45,16 +45,6 @@ namespace GHelper.Display
             brightnessTimer.Elapsed += BrightnessTimerTimer_Elapsed;
         }
 
-        public static string GetGameVisualPath()
-        {
-            return Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\ASUS\\GameVisual";
-        }
-
-        public static string GetVivobookPath()
-        {
-            return Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + "\\ASUS\\ASUS System Control Interface\\ASUSOptimization\\Splendid";
-        }
-
         const string GameVisualKey = @"HKEY_CURRENT_USER\Software\ASUS\ARMOURY CRATE Service\GameVisual";
         const string GameVisualValue = "ActiveGVStatus";
 
@@ -130,15 +120,6 @@ namespace GHelper.Display
 
             // GammaRamp Fallback
             SetGamma(_brightness);
-        }
-
-        public static void InitBrightness()
-        {
-            if (!AppConfig.IsOLED()) return;
-            if (!AppConfig.SaveDimming()) return;
-
-            int brightness = GetBrightness();
-            if (brightness >= 0) SetBrightness(brightness);
         }
 
         private static bool IsOnBattery()
