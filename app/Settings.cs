@@ -10,7 +10,6 @@ namespace GHelper
         ToolStripMenuItem menuStartup, menuOnTop, menuFocus;
 
         static long lastLostFocus;
-        static bool trayClicked = false;
         static public bool allowTray = true;
 
         bool sliderGammaIgnore = false;
@@ -189,11 +188,6 @@ namespace GHelper
 
         private void TrayIcon_MouseDown(object? sender, EventArgs e)
         {
-            /*
-            if (AppConfig.Is("hide_with_focus") && this.HasAnyFocus())
-            {
-                trayClicked = true;
-            }*/
             if (AppConfig.Is("hide_with_focus") )//this.HasAnyFocus())
             {
                 allowTray = false;
@@ -211,13 +205,6 @@ namespace GHelper
 
         private void SettingsForm_LostFocus(object? sender, EventArgs e)
         {
-            /*
-            lastLostFocus = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-            if (AppConfig.Is("hide_with_focus") && !trayClicked)
-            {
-                HideAll();
-            }
-            trayClicked = false;*/
             lastLostFocus = DateTimeOffset.Now.ToUnixTimeMilliseconds();
             if (AppConfig.Is("hide_with_focus"))
             {
