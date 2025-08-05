@@ -1,6 +1,6 @@
 ﻿using System.Drawing.Drawing2D;
 
-namespace GHelper.UI
+namespace GOLED.UI
 {
     public static class GraphicsExtensions
     {

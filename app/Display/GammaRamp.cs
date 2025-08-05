@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace GHelper.Display
+namespace GOLED.Display
 {
 
     [StructLayout(LayoutKind.Sequential)]

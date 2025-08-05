@@ -157,7 +157,7 @@
     <value>La apliación ya está ejecutándose</value>
   </data>
   <data name="AppAlreadyRunningText" xml:space="preserve">
-    <value>G-Helper ya está ejecutándose. Compruebe la bandeja del sistema.</value>
+    <value>G-OLED ya está ejecutándose. Compruebe la bandeja del sistema.</value>
   </data>
   <data name="Apply" xml:space="preserve">
     <value>Aplicar</value>
@@ -617,8 +617,8 @@
   <data name="OneZone" xml:space="preserve">
     <value>Una zona</value>
   </data>
-  <data name="OpenGHelper" xml:space="preserve">
-    <value>Abrir ventana G-Helper</value>
+  <data name="OpenGOLED" xml:space="preserve">
+    <value>Abrir ventana G-OLED</value>
   </data>
   <data name="Optimized" xml:space="preserve">
     <value>Optimizado</value>

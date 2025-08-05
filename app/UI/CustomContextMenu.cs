@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace GHelper.UI
+namespace GOLED.UI
 {
     class CustomContextMenu : ContextMenuStrip
     {

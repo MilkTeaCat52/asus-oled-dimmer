@@ -1,15 +1,15 @@
-using GHelper.Helpers;
+using GOLED.Helpers;
 using System.Diagnostics;
 using System.Globalization;
 using System.Reflection;
 
-namespace GHelper
+namespace GOLED
 {
     static class Program
     {
         public static NotifyIcon trayIcon = new NotifyIcon
         {
-            Text = "G-Helper",
+            Text = "G-OLED",
             Icon = Properties.Resources.standard,
             Visible = true
         };
@@ -56,7 +56,7 @@ namespace GHelper
             if (settingsForm.Visible)
             {
                 // If helper window is not on top, this just focuses on the app again
-                // Pressing the ghelper button again will hide the app
+                // Pressing the goled button again will hide the app
                 if (!settingsForm.HasAnyFocus(trayClick) && !AppConfig.Is("topmost"))
                 {
                     settingsForm.ShowAll();

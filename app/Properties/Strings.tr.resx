@@ -157,7 +157,7 @@
     <value>Uygulama zaten çalışıyor</value>
   </data>
   <data name="AppAlreadyRunningText" xml:space="preserve">
-    <value>G-Helper zaten çalışıyor. Simge için görev çubuğunu kontrol edin.</value>
+    <value>G-OLED zaten çalışıyor. Simge için görev çubuğunu kontrol edin.</value>
   </data>
   <data name="Apply" xml:space="preserve">
     <value>Uygula</value>
@@ -617,8 +617,8 @@ Yine de devam etmek istiyor musunuz?</value>
   <data name="OneZone" xml:space="preserve">
     <value>Tek Bölge</value>
   </data>
-  <data name="OpenGHelper" xml:space="preserve">
-    <value>G-Helper penceresini aç</value>
+  <data name="OpenGOLED" xml:space="preserve">
+    <value>G-OLED penceresini aç</value>
   </data>
   <data name="Optimized" xml:space="preserve">
     <value>İyileştirilmiş</value>
@@ -669,7 +669,7 @@ Yine de devam etmek istiyor musunuz?</value>
     <value>Sıfırla</value>
   </data>
   <data name="RestartGPU" xml:space="preserve">
-    <value>Bir şey harici GPU'yu kullanıyor ve Eco modunu engelliyor. G-Helper aygıt yöneticisinde harici GPU'yu yeniden başlatmayı denesin mi? (Kendi sorumluluğunuzdadır)</value>
+    <value>Bir şey harici GPU'yu kullanıyor ve Eco modunu engelliyor. G-OLED aygıt yöneticisinde harici GPU'yu yeniden başlatmayı denesin mi? (Kendi sorumluluğunuzdadır)</value>
   </data>
   <data name="RPM" xml:space="preserve">
     <value>RPM</value>

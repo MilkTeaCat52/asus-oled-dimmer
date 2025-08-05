@@ -157,7 +157,7 @@
     <value>Aplikacja jest już uruchomiona</value>
   </data>
   <data name="AppAlreadyRunningText" xml:space="preserve">
-    <value>G-Helper jest już uruchomiony. Sprawdź obszar powiadomień na pasku zadań.</value>
+    <value>G-OLED jest już uruchomiony. Sprawdź obszar powiadomień na pasku zadań.</value>
   </data>
   <data name="Apply" xml:space="preserve">
     <value>Zastosuj</value>
@@ -617,8 +617,8 @@ Nadal chcesz kontynuować?</value>
   <data name="OneZone" xml:space="preserve">
     <value>Jedna strefa</value>
   </data>
-  <data name="OpenGHelper" xml:space="preserve">
-    <value>Otwórz okno G-Helper</value>
+  <data name="OpenGOLED" xml:space="preserve">
+    <value>Otwórz okno G-OLED</value>
   </data>
   <data name="Optimized" xml:space="preserve">
     <value>Optymalny</value>
@@ -669,7 +669,7 @@ Nadal chcesz kontynuować?</value>
     <value>Reset</value>
   </data>
   <data name="RestartGPU" xml:space="preserve">
-    <value>Coś korzysta z dGPU, uniemożliwiając włączenie trybu Eco. Czy G-Helper ma zresetować dGPU w Menadżerze Urządzeń? (Korzystasz na własne ryzyko)</value>
+    <value>Coś korzysta z dGPU, uniemożliwiając włączenie trybu Eco. Czy G-OLED ma zresetować dGPU w Menadżerze Urządzeń? (Korzystasz na własne ryzyko)</value>
   </data>
   <data name="RPM" xml:space="preserve">
     <value>RPM</value>

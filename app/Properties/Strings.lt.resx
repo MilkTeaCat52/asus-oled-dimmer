@@ -157,7 +157,7 @@
     <value>Programėlė jau paleista</value>
   </data>
   <data name="AppAlreadyRunningText" xml:space="preserve">
-    <value>G-Helper jau paleistas. Patikrinkite, ar sistemos juostelėje nėra piktogramos.</value>
+    <value>G-OLED jau paleistas. Patikrinkite, ar sistemos juostelėje nėra piktogramos.</value>
   </data>
   <data name="Apply" xml:space="preserve">
     <value>Taikyti</value>
@@ -617,8 +617,8 @@ Vis tiek norite tęsti?</value>
   <data name="OneZone" xml:space="preserve">
     <value>Viena zona</value>
   </data>
-  <data name="OpenGHelper" xml:space="preserve">
-    <value>Atidaryti G-Helper langą</value>
+  <data name="OpenGOLED" xml:space="preserve">
+    <value>Atidaryti G-OLED langą</value>
   </data>
   <data name="Optimized" xml:space="preserve">
     <value>Optimizuotas</value>
@@ -669,7 +669,7 @@ Vis tiek norite tęsti?</value>
     <value>Atstatyti</value>
   </data>
   <data name="RestartGPU" xml:space="preserve">
-    <value>Kažkas naudoja dGPU ir neleidžia įjungti ekonomiško režimo. Norite leisti G-Helper bandyti iš naujo paleisti dGPU įrenginių tvarkytuvėje? (Tęskite savo rizika)</value>
+    <value>Kažkas naudoja dGPU ir neleidžia įjungti ekonomiško režimo. Norite leisti G-OLED bandyti iš naujo paleisti dGPU įrenginių tvarkytuvėje? (Tęskite savo rizika)</value>
   </data>
   <data name="RPM" xml:space="preserve">
     <value>RPM</value>

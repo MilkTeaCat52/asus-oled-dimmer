@@ -17,7 +17,7 @@ public static class AppConfig
     {
 
         string startupPath = Application.StartupPath.Trim('\\');
-        string appPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\GHelper";
+        string appPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\GOLED";
         string configName = "\\config.json";
 
         if (File.Exists(startupPath + configName))

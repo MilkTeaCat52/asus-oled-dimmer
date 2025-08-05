@@ -2,7 +2,7 @@
 
 public static class Logger
 {
-    public static string appPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\GHelper";
+    public static string appPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\GOLED";
     public static string logFile = appPath + "\\log.txt";
 
     public static void WriteLine(string logMessage)

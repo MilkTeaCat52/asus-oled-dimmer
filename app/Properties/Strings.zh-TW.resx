@@ -157,7 +157,7 @@
     <value>程式正在執行</value>
   </data>
   <data name="AppAlreadyRunningText" xml:space="preserve">
-    <value>G-Helper 正在執行。 請檢查右下系統匣。</value>
+    <value>G-OLED 正在執行。 請檢查右下系統匣。</value>
   </data>
   <data name="Apply" xml:space="preserve">
     <value>套用</value>
@@ -373,7 +373,7 @@
     <value>關機前啟動顯卡(解決切換顯卡節能模式&amp;混合輸出和亮度的某些問題)</value>
   </data>
   <data name="EnableOptimusText" xml:space="preserve">
-    <value>「Nvidia控制面板」中的顯示模式未設置為自動切換時，透過G-Helper的節能模式禁用獨顯可能導致螢幕亮度控制出現問題直到下次重新開機後。
+    <value>「Nvidia控制面板」中的顯示模式未設置為自動切換時，透過G-OLED的節能模式禁用獨顯可能導致螢幕亮度控制出現問題直到下次重新開機後。
 
 是否繼續？</value>
   </data>
@@ -617,8 +617,8 @@
   <data name="OneZone" xml:space="preserve">
     <value>單區</value>
   </data>
-  <data name="OpenGHelper" xml:space="preserve">
-    <value>開啟G-Helper視窗</value>
+  <data name="OpenGOLED" xml:space="preserve">
+    <value>開啟G-OLED視窗</value>
   </data>
   <data name="Optimized" xml:space="preserve">
     <value>自動調節</value>
@@ -669,7 +669,7 @@
     <value>重設</value>
   </data>
   <data name="RestartGPU" xml:space="preserve">
-    <value>有其他程式正在使用獨顯導致無法切換至節能模式. 是否讓 G-Helper 於裝置管理員重新啟動獨顯? (請自行評估風險)</value>
+    <value>有其他程式正在使用獨顯導致無法切換至節能模式. 是否讓 G-OLED 於裝置管理員重新啟動獨顯? (請自行評估風險)</value>
   </data>
   <data name="RPM" xml:space="preserve">
     <value>RPM</value>

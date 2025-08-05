@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.InteropServices;
 
-namespace GHelper.Display
+namespace GOLED.Display
 {
     public static class ScreenInterrogatory
     {

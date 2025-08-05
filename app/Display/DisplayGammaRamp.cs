@@ -1,4 +1,4 @@
-﻿namespace GHelper.Display
+﻿namespace GOLED.Display
 {
 
     public class DisplayGammaRamp

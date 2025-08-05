@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Runtime.InteropServices;
-using static GHelper.Display.ScreenInterrogatory;
+using static GOLED.Display.ScreenInterrogatory;
 
-namespace GHelper.Display
+namespace GOLED.Display
 {
     internal class ScreenNative
     {

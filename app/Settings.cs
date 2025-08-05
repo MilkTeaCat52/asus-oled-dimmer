@@ -1,8 +1,8 @@
-﻿using GHelper.Display;
-using GHelper.Helpers;
-using GHelper.UI;
+﻿using GOLED.Display;
+using GOLED.Helpers;
+using GOLED.UI;
 
-namespace GHelper
+namespace GOLED
 {
     public partial class SettingsForm : RForm
     {
@@ -29,7 +29,7 @@ namespace GHelper
             SetVersionLabel("0.219.0");
 
 
-            Text = "G-Helper " + (ProcessHelper.IsUserAdministrator() ? "—" : "-") + " " + AppConfig.GetModelShort();
+            Text = "G-OLED " + (ProcessHelper.IsUserAdministrator() ? "—" : "-") + " " + AppConfig.GetModelShort();
             TopMost = AppConfig.Is("topmost");
 
             //This will auto position the window again when it resizes. Might mess with position if people drag the window somewhere else.

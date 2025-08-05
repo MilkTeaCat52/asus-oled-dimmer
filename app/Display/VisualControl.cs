@@ -1,8 +1,8 @@
-﻿using GHelper.Helpers;
+﻿using GOLED.Helpers;
 using Microsoft.Win32;
 using System.Management;
 
-namespace GHelper.Display
+namespace GOLED.Display
 {
     public enum SplendidCommand : int
     {

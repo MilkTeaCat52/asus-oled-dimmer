@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-namespace GHelper.UI
+namespace GOLED.UI
 {
     public class IconHelper
     {

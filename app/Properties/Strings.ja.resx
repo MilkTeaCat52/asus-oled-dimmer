@@ -157,7 +157,7 @@
     <value>アプリは既に実行中です</value>
   </data>
   <data name="AppAlreadyRunningText" xml:space="preserve">
-    <value>G-Helperは既に実行されています。システムトレイのアイコンをチェックしてください。</value>
+    <value>G-OLEDは既に実行されています。システムトレイのアイコンをチェックしてください。</value>
   </data>
   <data name="Apply" xml:space="preserve">
     <value>適用</value>
@@ -617,8 +617,8 @@
   <data name="OneZone" xml:space="preserve">
     <value>1つのゾーン</value>
   </data>
-  <data name="OpenGHelper" xml:space="preserve">
-    <value>G-Helperウィンドウを開く</value>
+  <data name="OpenGOLED" xml:space="preserve">
+    <value>G-OLEDウィンドウを開く</value>
   </data>
   <data name="Optimized" xml:space="preserve">
     <value>最適化</value>
@@ -669,7 +669,7 @@
     <value>リセット</value>
   </data>
   <data name="RestartGPU" xml:space="preserve">
-    <value>何らかの問題が dGPU を使用しており、エコモードを防止しています。G-Helper をデバイスマネージャーで dGPU を再起動させてください。(自己責任で進んでください)</value>
+    <value>何らかの問題が dGPU を使用しており、エコモードを防止しています。G-OLED をデバイスマネージャーで dGPU を再起動させてください。(自己責任で進んでください)</value>
   </data>
   <data name="RPM" xml:space="preserve">
     <value>RPM</value>

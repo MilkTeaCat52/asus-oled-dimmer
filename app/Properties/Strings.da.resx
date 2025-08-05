@@ -157,7 +157,7 @@
     <value>App'en kører allerede</value>
   </data>
   <data name="AppAlreadyRunningText" xml:space="preserve">
-    <value>G-Helper kører allerede. Tjek systembakken for et ikon.</value>
+    <value>G-OLED kører allerede. Tjek systembakken for et ikon.</value>
   </data>
   <data name="Apply" xml:space="preserve">
     <value>Anvend</value>
@@ -617,8 +617,8 @@ Vil du stadig fortsætte?</value>
   <data name="OneZone" xml:space="preserve">
     <value>En zone</value>
   </data>
-  <data name="OpenGHelper" xml:space="preserve">
-    <value>Åbn G-Helper vindue</value>
+  <data name="OpenGOLED" xml:space="preserve">
+    <value>Åbn G-OLED vindue</value>
   </data>
   <data name="Optimized" xml:space="preserve">
     <value>Optimeret</value>
@@ -669,7 +669,7 @@ Vil du stadig fortsætte?</value>
     <value>Nulstil</value>
   </data>
   <data name="RestartGPU" xml:space="preserve">
-    <value>Noget bruger dGPU og forhindrer Øko-tilstand. Lad G-Helper forsøge at genstarte dGPU i enhedshåndtering? (fortsæt på egen risiko)</value>
+    <value>Noget bruger dGPU og forhindrer Øko-tilstand. Lad G-OLED forsøge at genstarte dGPU i enhedshåndtering? (fortsæt på egen risiko)</value>
   </data>
   <data name="RPM" xml:space="preserve">
     <value>RPM</value>

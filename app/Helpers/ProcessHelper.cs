@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Security.Principal;
 
-namespace GHelper.Helpers
+namespace GOLED.Helpers
 {
     public static class ProcessHelper
     {

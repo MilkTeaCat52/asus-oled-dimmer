@@ -157,7 +157,7 @@
     <value>O applicativo já está em execução</value>
   </data>
   <data name="AppAlreadyRunningText" xml:space="preserve">
-    <value>G-Helper já está em execução. Verifique a barra de sistema</value>
+    <value>G-OLED já está em execução. Verifique a barra de sistema</value>
   </data>
   <data name="Apply" xml:space="preserve">
     <value>Aplicar</value>
@@ -617,8 +617,8 @@ Ainda quer continuar?</value>
   <data name="OneZone" xml:space="preserve">
     <value>Uma Zona</value>
   </data>
-  <data name="OpenGHelper" xml:space="preserve">
-    <value>Abrir G-Helper</value>
+  <data name="OpenGOLED" xml:space="preserve">
+    <value>Abrir G-OLED</value>
   </data>
   <data name="Optimized" xml:space="preserve">
     <value>Otimizado</value>
@@ -669,7 +669,7 @@ Ainda quer continuar?</value>
     <value>Redefinir</value>
   </data>
   <data name="RestartGPU" xml:space="preserve">
-    <value>Algo está usando dGPU e impedindo o modo Eco. Deixe G-Helper tentar reiniciar o dGPU no gerenciador de dispositivos? (Por favor, proceda por sua conta e risco)</value>
+    <value>Algo está usando dGPU e impedindo o modo Eco. Deixe G-OLED tentar reiniciar o dGPU no gerenciador de dispositivos? (Por favor, proceda por sua conta e risco)</value>
   </data>
   <data name="RPM" xml:space="preserve">
     <value>RPM</value>

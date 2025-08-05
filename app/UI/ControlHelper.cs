@@ -1,4 +1,4 @@
-﻿using GHelper.UI;
+﻿using GOLED.UI;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms.DataVisualization.Charting;
 

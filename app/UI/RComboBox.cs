@@ -2,7 +2,7 @@
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
 
-namespace GHelper.UI
+namespace GOLED.UI
 {
     public class RComboBox : ComboBox
     {

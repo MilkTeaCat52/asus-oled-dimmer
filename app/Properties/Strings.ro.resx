@@ -157,7 +157,7 @@
     <value>Aplicația rulează deja</value>
   </data>
   <data name="AppAlreadyRunningText" xml:space="preserve">
-    <value>G-Helper deja rulează. Verificați bara de sistem pentru o iconiță.</value>
+    <value>G-OLED deja rulează. Verificați bara de sistem pentru o iconiță.</value>
   </data>
   <data name="Apply" xml:space="preserve">
     <value>Aplică</value>
@@ -617,8 +617,8 @@
   <data name="OneZone" xml:space="preserve">
     <value>One Zone</value>
   </data>
-  <data name="OpenGHelper" xml:space="preserve">
-    <value>Deschide fereastra G-Helper</value>
+  <data name="OpenGOLED" xml:space="preserve">
+    <value>Deschide fereastra G-OLED</value>
   </data>
   <data name="Optimized" xml:space="preserve">
     <value>Optimizat</value>
@@ -669,7 +669,7 @@
     <value>Reset</value>
   </data>
   <data name="RestartGPU" xml:space="preserve">
-    <value>Ceva folosește dGPU și previne modul Eco. Permiteți G-Helper să repornească dGPU în managerul de dispozitive? (Continuați pe propriul risc)</value>
+    <value>Ceva folosește dGPU și previne modul Eco. Permiteți G-OLED să repornească dGPU în managerul de dispozitive? (Continuați pe propriul risc)</value>
   </data>
   <data name="RPM" xml:space="preserve">
     <value>RPM</value>

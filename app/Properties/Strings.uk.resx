@@ -157,7 +157,7 @@
     <value>Програма вже запущена</value>
   </data>
   <data name="AppAlreadyRunningText" xml:space="preserve">
-    <value>G-Helper вже запущено. Перевірте значок у системному лотку.</value>
+    <value>G-OLED вже запущено. Перевірте значок у системному лотку.</value>
   </data>
   <data name="Apply" xml:space="preserve">
     <value>Застосувати</value>
@@ -617,8 +617,8 @@
   <data name="OneZone" xml:space="preserve">
     <value>Одна зона</value>
   </data>
-  <data name="OpenGHelper" xml:space="preserve">
-    <value>Відкрити вікно G-Helper</value>
+  <data name="OpenGOLED" xml:space="preserve">
+    <value>Відкрити вікно G-OLED</value>
   </data>
   <data name="Optimized" xml:space="preserve">
     <value>Авто</value>
@@ -669,7 +669,7 @@
     <value>Скинути</value>
   </data>
   <data name="RestartGPU" xml:space="preserve">
-    <value>Щось використовує dGPU та запобігає Еко-режиму. Дозвольте G-Helper спробувати перезапустити dGPU у менеджері пристрою? (Будь ласка, продовжуйте на власний ризик)</value>
+    <value>Щось використовує dGPU та запобігає Еко-режиму. Дозвольте G-OLED спробувати перезапустити dGPU у менеджері пристрою? (Будь ласка, продовжуйте на власний ризик)</value>
   </data>
   <data name="RPM" xml:space="preserve">
     <value>Оберти</value>

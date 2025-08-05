@@ -1,6 +1,6 @@
-﻿using GHelper.UI;
+﻿using GOLED.UI;
 
-namespace GHelper
+namespace GOLED
 {
     partial class SettingsForm
     {
@@ -165,7 +165,7 @@ namespace GHelper
             Padding = new Padding(11);
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "G-Helper";
+            Text = "G-OLED";
             panelGamma.ResumeLayout(false);
             panelGammaTitle.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureGamma).EndInit();

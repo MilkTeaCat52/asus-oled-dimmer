@@ -617,8 +617,8 @@
   <data name="OneZone" xml:space="preserve">
     <value>منطقة واحدة</value>
   </data>
-  <data name="OpenGHelper" xml:space="preserve">
-    <value>فتح نافذة G-Helper</value>
+  <data name="OpenGOLED" xml:space="preserve">
+    <value>فتح نافذة G-OLED</value>
   </data>
   <data name="Optimized" xml:space="preserve">
     <value>محسّن</value>
@@ -669,7 +669,7 @@
     <value>إعادة ضبط</value>
   </data>
   <data name="RestartGPU" xml:space="preserve">
-    <value>هناك شيء يستخدم وحدة معالجة الرسومات المنفصلة ويمنع وضع التوفير. هل تريد أن يحاول G-Helper إعادة تشغيل وحدة معالجة الرسومات في مدير الأجهزة؟ (يرجى المتابعة على مسؤوليتك الخاصة)</value>
+    <value>هناك شيء يستخدم وحدة معالجة الرسومات المنفصلة ويمنع وضع التوفير. هل تريد أن يحاول G-OLED إعادة تشغيل وحدة معالجة الرسومات في مدير الأجهزة؟ (يرجى المتابعة على مسؤوليتك الخاصة)</value>
   </data>
   <data name="RPM" xml:space="preserve">
     <value>دورة في الدقيقة</value>

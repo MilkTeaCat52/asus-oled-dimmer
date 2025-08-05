@@ -157,7 +157,7 @@
     <value>应用已经在运行</value>
   </data>
   <data name="AppAlreadyRunningText" xml:space="preserve">
-    <value>G-Helper已经在运行。 请查看系统托盘中的图标。</value>
+    <value>G-OLED已经在运行。 请查看系统托盘中的图标。</value>
   </data>
   <data name="Apply" xml:space="preserve">
     <value>应用</value>
@@ -617,8 +617,8 @@
   <data name="OneZone" xml:space="preserve">
     <value>单区</value>
   </data>
-  <data name="OpenGHelper" xml:space="preserve">
-    <value>打开G-Helper窗口</value>
+  <data name="OpenGOLED" xml:space="preserve">
+    <value>打开G-OLED窗口</value>
   </data>
   <data name="Optimized" xml:space="preserve">
     <value>自动切换</value>
@@ -669,7 +669,7 @@
     <value>重置</value>
   </data>
   <data name="RestartGPU" xml:space="preserve">
-    <value>有程序正在使用独显并阻止进入集显模式。要让 G-Helper 在设备管理器中重新启动独显吗？（请自行承担风险）</value>
+    <value>有程序正在使用独显并阻止进入集显模式。要让 G-OLED 在设备管理器中重新启动独显吗？（请自行承担风险）</value>
   </data>
   <data name="RPM" xml:space="preserve">
     <value>转/分钟</value>

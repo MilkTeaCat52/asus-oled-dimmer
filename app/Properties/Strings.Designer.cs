@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GHelper.Properties {
+namespace GOLED.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace GHelper.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GHelper.Properties.Strings", typeof(Strings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GOLED.Properties.Strings", typeof(Strings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -187,7 +187,7 @@ namespace GHelper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to G-Helper is already running. Check system tray for an icon..
+        ///   Looks up a localized string similar to G-OLED is already running. Check system tray for an icon..
         /// </summary>
         internal static string AppAlreadyRunningText {
             get {
@@ -1638,11 +1638,11 @@ namespace GHelper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Open G-Helper window.
+        ///   Looks up a localized string similar to Open G-OLED window.
         /// </summary>
-        internal static string OpenGHelper {
+        internal static string OpenGOLED {
             get {
-                return ResourceManager.GetString("OpenGHelper", resourceCulture);
+                return ResourceManager.GetString("OpenGOLED", resourceCulture);
             }
         }
         
@@ -1791,7 +1791,7 @@ namespace GHelper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Something is using dGPU and preventing Eco mode. Let G-Helper try to restart dGPU in device manager? (Please proceed at your own risk).
+        ///   Looks up a localized string similar to Something is using dGPU and preventing Eco mode. Let G-OLED try to restart dGPU in device manager? (Please proceed at your own risk).
         /// </summary>
         internal static string RestartGPU {
             get {

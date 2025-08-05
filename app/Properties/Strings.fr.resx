@@ -157,7 +157,7 @@
     <value>L'application est déjà en cours d'exécution</value>
   </data>
   <data name="AppAlreadyRunningText" xml:space="preserve">
-    <value>G-Helper est déjà en cours d'exécution. Vérifiez la barre d'état système.</value>
+    <value>G-OLED est déjà en cours d'exécution. Vérifiez la barre d'état système.</value>
   </data>
   <data name="Apply" xml:space="preserve">
     <value>Appliquer</value>
@@ -617,8 +617,8 @@ Voulez-vous continuer ?</value>
   <data name="OneZone" xml:space="preserve">
     <value>Une zone</value>
   </data>
-  <data name="OpenGHelper" xml:space="preserve">
-    <value>Ouvrir G-Helper</value>
+  <data name="OpenGOLED" xml:space="preserve">
+    <value>Ouvrir G-OLED</value>
   </data>
   <data name="Optimized" xml:space="preserve">
     <value>Optimisé</value>
@@ -669,7 +669,7 @@ Voulez-vous continuer ?</value>
     <value>Réinitialiser</value>
   </data>
   <data name="RestartGPU" xml:space="preserve">
-    <value>Un programme utilise le dGPU et empêche le passage en mode Éco. Laissez G-Helper tenter un redémarrage du dGPU dans le gestionnaire de tâches ? (Procéder à vos propres risques)</value>
+    <value>Un programme utilise le dGPU et empêche le passage en mode Éco. Laissez G-OLED tenter un redémarrage du dGPU dans le gestionnaire de tâches ? (Procéder à vos propres risques)</value>
   </data>
   <data name="RPM" xml:space="preserve">
     <value> RPM</value>

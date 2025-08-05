@@ -8,10 +8,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <IsPublishable>True</IsPublishable>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <StartupObject>GHelper.Program</StartupObject>
+    <StartupObject>GOLED.Program</StartupObject>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
     <Platforms>AnyCPU;x64</Platforms>
-    <AssemblyName>GHelper</AssemblyName>
+    <AssemblyName>GOLED</AssemblyName>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>

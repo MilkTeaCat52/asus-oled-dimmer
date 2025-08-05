@@ -1,11 +1,11 @@
-﻿using GHelper.Helpers;
+﻿using GOLED.Helpers;
 using Microsoft.Win32.TaskScheduler;
 using System.Security.Principal;
 
 public class Startup
 {
 
-    static string taskName = "GHelper";
+    static string taskName = "GOLED";
     static string strExeFilePath = Application.ExecutablePath.Trim();
 
     public static bool IsScheduled()
@@ -55,7 +55,7 @@ public class Startup
         using (TaskDefinition td = TaskService.Instance.NewTask())
         {
 
-            td.RegistrationInfo.Description = "G-Helper Auto Start";
+            td.RegistrationInfo.Description = "G-OLED Auto Start";
             td.Triggers.Add(new LogonTrigger { UserId = WindowsIdentity.GetCurrent().Name, Delay = TimeSpan.FromSeconds(2) });
             td.Actions.Add(strExeFilePath);
 
@@ -73,7 +73,7 @@ public class Startup
             catch (Exception e)
             {
                 if (ProcessHelper.IsUserAdministrator())
-                    MessageBox.Show("Can't create a start up task. Try running Task Scheduler by hand and manually deleting GHelper task if it exists there.", "Scheduler Error", MessageBoxButtons.OK);
+                    MessageBox.Show("Can't create a start up task. Try running Task Scheduler by hand and manually deleting GOLED task if it exists there.", "Scheduler Error", MessageBoxButtons.OK);
                 else
                     ProcessHelper.RunAsAdmin();
             }
@@ -93,7 +93,7 @@ public class Startup
             catch (Exception e)
             {
                 if (ProcessHelper.IsUserAdministrator())
-                    MessageBox.Show("Can't remove task. Try running Task Scheduler by hand and manually deleting GHelper task if it exists there.", "Scheduler Error", MessageBoxButtons.OK);
+                    MessageBox.Show("Can't remove task. Try running Task Scheduler by hand and manually deleting GOLED task if it exists there.", "Scheduler Error", MessageBoxButtons.OK);
                 else
                     ProcessHelper.RunAsAdmin();
             }
